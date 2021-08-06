@@ -7,7 +7,7 @@ export default {
   input: "src/index.ts",
   output: [
     {
-      dir: "lib",
+      dir: "dist",
       format: "esm",
       sourcemap: true,
       preserveModulesRoot: "src",

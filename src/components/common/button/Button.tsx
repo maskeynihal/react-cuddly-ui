@@ -1,22 +1,26 @@
 import clsx from "clsx";
-import React, { ReactNode } from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 
-export type ButtonType = "default";
+import styles from "./button.module.scss";
+
+export type ButtonType = "primary";
 
 interface BaseButtonProps {
   children?: ReactNode;
   type?: ButtonType;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 export type ButtonProps = BaseButtonProps;
 
 const Button = (props: ButtonProps) => {
-  const { children, type = "default" } = props;
+  const { children, type, onClick, ...rest } = props;
 
   return (
     <button
-      className={clsx(`btn btn-${type}`)}
-      style={{ border: "none", background: "green" }}
+      className={clsx(styles["btn"], { [styles[`btn--${type}`]]: type })}
+      onClick={onClick}
+      {...rest}
     >
       {children}
     </button>

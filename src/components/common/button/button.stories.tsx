@@ -3,6 +3,7 @@ import { Meta, Story } from "@storybook/react";
 
 import { Button } from "./index";
 import { ButtonProps } from "./Button";
+import { action } from "@storybook/addon-actions";
 
 export default {
   component: Button,
@@ -14,7 +15,10 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 export const DefaultButton = Template.bind({});
 DefaultButton.args = {
   children: "Default Button",
-  type: "default",
 };
 
-export const Primary: React.VFC<{}> = () => <Button>Primary</Button>;
+export const PrimaryButton = Template.bind({});
+PrimaryButton.args = {
+  children: "Primary Button",
+  type: "primary",
+};

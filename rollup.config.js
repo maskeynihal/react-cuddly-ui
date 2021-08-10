@@ -1,6 +1,5 @@
-import commonjs from "@rollup/plugin-commonjs";
+import styles from "rollup-plugin-styles";
 import typescript from "@rollup/plugin-typescript";
-import { nodeResolve } from "@rollup/plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 export default {
@@ -10,9 +9,17 @@ export default {
       dir: "dist",
       format: "esm",
       sourcemap: true,
-      preserveModulesRoot: "src",
     },
   ],
-  plugins: [peerDepsExternal(), nodeResolve(), commonjs(), typescript()],
+  preserveModules: true,
+  mode: "development",
+  plugins: [
+    peerDepsExternal(),
+    typescript(),
+    styles({
+      modules: true,
+      sourceMap: true,
+    }),
+  ],
   external: ["react", "react-dom"],
 };

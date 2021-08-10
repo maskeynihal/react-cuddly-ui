@@ -48,10 +48,14 @@
     "build": "yarn clean:build && rollup -c",
     "build:watch": "yarn clean:build && rollup -c -w",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepublishOnly": "yarn build"
   },
   "files": [
     "*.d.ts",
     "dist"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@leapfrogtechnology/vyaguta-ui",
+  "name": "@maskeynihal/react-cuddly-ui",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "sideEffect": false,
   "main": "dist/src/index.js",
   "dependencies": {
